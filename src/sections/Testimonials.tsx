@@ -3,6 +3,9 @@ import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
 import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
 import memojiAvatar4 from "@/assets/images/memoji-avatar-4.png";
 import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
+import { SectionHeader } from "@/components/SectionHeader";
+import { Card } from "@/components/Card";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -38,5 +41,48 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
-  return <div>Testimonials Section</div>;
+  return <div>
+    <div className="container">
+
+      <SectionHeader
+        title="Real-world Results"
+        subtitle="What clients say about me?"
+        description="Don't just take my word for it. Here's what my clients have to say!"
+      />
+      <div className="flex flex-none gap-4 mt-16 overflow-x-clip"
+        // style={{
+        //     WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        //     maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+        //   }} 
+          >
+        {testimonials.map((testimonial, index) => (
+          <Card key={index} className="flex-shrink-0 max-w-xs md:max-w-[400px] md:p-8">
+            <div className="flex items-center my-2">
+              <div className="size-14 border-1 bg-gray-600 border-gray-600 rounded-full relative flex-shrink-0 mr-3">
+                <Image src={testimonial.avatar} alt={testimonial.name} layout="fill" objectFit="cover" className="max-h-full" />
+              </div>
+              <div>
+                <div className="font-semibold ">{testimonial.name}</div>
+                <div className="text-sm text-white/40">{testimonial.position}</div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm">{testimonial.text}</p>
+          </Card>
+
+          // <div key={index} className="flex-shrink-0 bg-gray-800 rounded-3xl px-6 w-full md:px-8  md:w-[450px] ">
+          //   <div className="flex items-center my-2">
+          //     <div className="border-2 bg-gray-800 rounded-full w-20 h-20 relative overflow-hidden">
+          //       <Image src={testimonial.avatar} alt={testimonial.name} layout="fill" objectFit="cover" className="rounded-full" />
+          //     </div>
+          //     <div>
+          //       <div>{testimonial.name}</div>
+          //       <div>{testimonial.position}</div>
+          //     </div>
+          //   </div>
+          //   <p>{testimonial.text}</p>
+          // </div>
+        ))}
+      </div>
+    </div>
+  </div>;
 };
