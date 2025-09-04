@@ -79,31 +79,45 @@ const toolboxItems = [
 const hobbies = [
   {
     title: "Reading",
-    emoji: "📚"
+    emoji: "📚",
+    top: "0%",
+    left: "15%"
   },
   {
     title: "Traveling",
-    emoji: "🗺️"
+    emoji: "🗺️",
+    top: "25%",
+    left: "60%"
   },
   {
     title: "Gaming",
-    emoji: "🎮"
+    emoji: "🎮",
+    top: "60%",
+    left: "20%"
   },
   {
     title: "Cooking",
-    emoji: "🍳"
+    emoji: "🍳",
+    top: "45%",
+    left: "70%"
   },
   {
     title: "Hiking",
-    emoji: "🥾"
+    emoji: "🥾",
+    top: "70%",
+    left: "40%"
   },
   {
     title: "Photography",
-    emoji: "📷"
+    emoji: "📷",
+    top: "80%",
+    left: "75%"
   },
   {
     title: "Traveling",
-    emoji: "✈️"
+    emoji: "✈️",
+    top: "80%",
+    left: "05%"
   },
 
 ]
@@ -119,7 +133,7 @@ export const AboutSection = () => {
         />
         <div className="mt-20">
           <div className="md:flex md:gap-8">
-            <Card className="h-[320px] mt-8 p-0 md:w-5/12 lg:w-4/12">
+            <Card className="h-[340px] mt-8 p-0 md:w-5/12 lg:w-4/12">
               <CardHeader
                 title="My Reads"
                 subtitle="Explore the books shaping my perspectives."
@@ -129,12 +143,12 @@ export const AboutSection = () => {
                 <Image src={bookImage} alt="Book Cover" />
               </div>
             </Card>
-            <Card className="h-[320px] mt-8 p-0 md:w-7/12 lg:w-8/12">
+            <Card className="h-[340px] mt-8 p-0 md:w-7/12 lg:w-8/12">
               <CardHeader
                 title="My Toolbox"
                 subtitle="Explore the tools and technologies I use."
               />
-              <div className="mt-6 flex gap-4 overflow-x-clip"
+              <div className="mt-8 flex gap-4 overflow-x-clip"
                 style={{
                   WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
                   maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
@@ -163,26 +177,29 @@ export const AboutSection = () => {
             </Card>
           </div>
           <div className="md:flex md:gap-8">
-            <Card className="h-[320px] mt-8 p-0 md:w-7/12 lg:w-8/12">
+            <Card className="h-[340px] mt-8 p-0 md:w-7/12 lg:w-8/12 flex flex-col">
               <CardHeader
                 title="Beyond the Code"
                 subtitle="Exploring my interests outside of programming."
               />
-              <div className="flex flex-wrap gap-4 w-full mt-6"
-               style={{
-                  WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-                  maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
-                }}
+              <div className="relative mt-6 h-full overflow-hidden"
+              //  style={{
+              //     WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              //     maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+              //   }}
               >
               {hobbies.map((hobby) => (
-                <div key={hobby.title} className="flex items-center space-x-2 bg-gradient-to-r from-emerald-300 to-sky-400 p-2 rounded-xl text-black font-bold">
+                <div key={hobby.title} className="inline-flex items-center  
+                bg-gradient-to-r from-emerald-300 to-sky-400 gap-2 p-2 rounded-xl
+                 text-black font-bold absolute" 
+                 style={{ top: hobby.top, left: hobby.left }}>
                   <span>{hobby.emoji}</span>
                   <span>{hobby.title}</span>
                 </div>
               ))}
               </div>
             </Card>
-            <Card className="h-[320px] mt-8 p-0 md:w-5/12 lg:w-4/12">
+            <Card className="h-[340px] mt-8 p-0 md:w-5/12 lg:w-4/12">
               <Image src={MapImage} alt="Map" className="object-cover w-full h-full" />
             </Card>
           </div>

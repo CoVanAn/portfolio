@@ -49,12 +49,7 @@ export const TestimonialsSection = () => {
         subtitle="What clients say about me?"
         description="Don't just take my word for it. Here's what my clients have to say!"
       />
-      <div className="flex flex-none gap-4 mt-16 overflow-x-clip"
-        // style={{
-        //     WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-        //     maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
-        //   }} 
-          >
+      <div className="flex flex-none gap-4 mt-16 overflow-x-clip">
         {testimonials.map((testimonial, index) => (
           <Card key={index} className="flex-shrink-0 max-w-xs md:max-w-[400px] md:p-8">
             <div className="flex items-center my-2">
