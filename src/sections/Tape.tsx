@@ -1,4 +1,5 @@
 import StarIcon from "@/assets/icons/star.svg";
+import { Fragment } from "react";
 
 
 const words = [
@@ -22,13 +23,22 @@ export const TapeSection = () => {
             WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
             maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
           }} >
-          <div className="flex flex-none gap-4 py-3">
-            {words.map((word, index) => (
-              <div key={index} className="inline-flex gap-4 items-center">
-                <span className="text-gray-900 uppercase font-extrabold text-sm ">{word}</span>
-                <StarIcon className="size-6 text-gray-900 -rotate-12"/>
-              </div>
-            ))}
+          <div className="flex flex-none gap-4 py-3
+            pr-4 -translate-x-1/2 animate-move-left [animationDuration:20s]
+          "
+           
+          >
+
+           {[...new Array(2)].fill(0).map((_, idx) => (
+            <Fragment key={idx}>
+              {words.map((word, index) => (
+                <div key={index} className="inline-flex gap-4 items-center">
+                  <span className="text-gray-900 uppercase font-extrabold text-sm ">{word}</span>
+                  <StarIcon className="size-6 text-gray-900 -rotate-12"/>
+                </div>
+              ))}
+            </Fragment>
+           ))}
           </div>
         </div>
       </div>

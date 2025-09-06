@@ -6,6 +6,7 @@ import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from '@/assets/images/grain.jpg'
 import { SectionHeader } from "@/components/SectionHeader";
+import { Card } from "@/components/Card";
 
 
 const portfolioProjects = [
@@ -57,9 +58,11 @@ export const ProjectsSection = () => {
           description="See how I transformed concept into engaging digital experiences."
         />
         <div className="md:mt-20 flex flex-col mt-10 gap-20">
-          {portfolioProjects.map(project => (
-            <div key={project.title} className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden 
-          after:z-10 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 after:pointer-events-none">
+          {portfolioProjects.map((project, index) => (
+            <Card key={project.title}
+              className={`px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky`} 
+              style={{ top: `${64 + index * 32}px` }}
+            >
               <div className="absolute inset-0 -z-10 opacity-5" style={{
                 backgroundImage: `url(${grainImage.src})`,
                 zIndex: -1
@@ -94,7 +97,7 @@ export const ProjectsSection = () => {
                   <Image src={project.image} alt={project.title} className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none" />
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

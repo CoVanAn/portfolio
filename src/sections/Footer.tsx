@@ -2,17 +2,17 @@ import ArrowUpRightIcon from "../assets/icons/arrow-up-right.svg";
 
 const footerLinks = [
   { name: "GitHub", url: "https://github.com/CoVanAn" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/yourusername" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/CoVanAn" },
   { name: "Facebook", url: "https://www.facebook.com/an.covan.9" },
-  { name: "Zalo", url: "https://zalo.me/yourusername" },
+  { name: "Zalo", url: "https://zalo.me/CoVanAn" },
 ];
 
 export const Footer = () => {
   return (
-  <footer className="mx-auto mt-6 p-6 space-y-4 shadow-lg bg-gradient-to-b from-gray-900 to-gray-800 ">
-    <hr className="container border-1" />
-    <div className="md:flex md:flex-row container md:justify-between md:items-center">
-      <p className="text-center text-sm text-gray-500">© 2024. All rights reserved.</p>
+  <footer className="mx-auto p-6 space-y-4 shadow-lg bg-gradient-to-b from-gray-900 to-emerald-300/20">
+    <hr className="container border-1 mt-6" />
+    <div className="6 md:flex md:flex-row container md:justify-between md:items-center">
+      <p className="text-center text-sm text-gray-200">© 2024. All rights reserved.</p>
       <div className="flex flex-col gap-4 text-center items-center space-x-0 space-y-2 md:space-x-4 md:space-y-0 md:flex-row justify-center py-6">
         {footerLinks.map((link) => (
           <a

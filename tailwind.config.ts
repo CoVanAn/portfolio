@@ -25,6 +25,25 @@ const config: Config = {
         sans: 'var(--font-sans)',
         serif: 'var(--font-serif)',
       },
+      keyframes: {
+        'ping-large': {
+          '75%, 100%': { transform: 'scale(2)', opacity: '0' },
+        },
+        'move-in-left': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'move-in-right': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(50%)' },
+        },
+      },
+      animation: {
+        'ping-large': 'ping-large 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'move-left': 'move-in-left 1s linear infinite',
+        'move-right': 'move-in-right 1s linear infinite',
+      },
+
     },
   },
   plugins: [],

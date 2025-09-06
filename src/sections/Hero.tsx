@@ -33,34 +33,34 @@ export const HeroSection = () => {
         <div className='size-[820px] hero-ring'></div>
         <div className='size-[1020px] hero-ring'></div>
         <div className='size-[1220px] hero-ring'></div>
-        <HeroOrbit size={800} rotation={-72}>
-          <StarIcon className='size-28 text-emerald-300' />
+        <HeroOrbit size={800} rotation={-72} spin={30} >
+          <StarIcon className='size-28 text-emerald-300 ' />
         </HeroOrbit>
-        <HeroOrbit size={550} rotation={20}>
+        <HeroOrbit size={550} rotation={20} spin={50}>
           <StarIcon className='size-12 text-emerald-300' />
         </HeroOrbit>
-        <HeroOrbit size={590} rotation={90}>
+        <HeroOrbit size={590} rotation={90} spin={50}>
           <StarIcon className='size-8 text-emerald-300' />
         </HeroOrbit>
-        <HeroOrbit size={430} rotation={-20}>
+        <HeroOrbit size={430} rotation={-20} spin={20}>
           <SparkleIcon className='size-8 text-emerald-300/20' />
         </HeroOrbit>
-        <HeroOrbit size={440} rotation={79}>
+        <HeroOrbit size={440} rotation={79} spin={60}>
           <SparkleIcon className='size-5 text-emerald-300/20' />
         </HeroOrbit>
-        <HeroOrbit size={530} rotation={178}>
+        <HeroOrbit size={530} rotation={178} spin={40}>
           <SparkleIcon className='size-10 text-emerald-300/20' />
         </HeroOrbit>
-        <HeroOrbit size={710} rotation={144}>
+        <HeroOrbit size={710} rotation={144} spin={34}>
           <SparkleIcon className='size-14 text-emerald-300/20' />
         </HeroOrbit>
-        <HeroOrbit size={720} rotation={85}>
+        <HeroOrbit size={720} rotation={85} spin={25}>
           <div className='size-3 rounded-full bg-emerald-300/20'></div>
         </HeroOrbit>
-        <HeroOrbit size={520} rotation={-41}>
+        <HeroOrbit size={520} rotation={-41} spin={35}>
           <div className='size-2 rounded-full bg-emerald-300/20'></div>
         </HeroOrbit>
-        <HeroOrbit size={620} rotation={-5}>
+        <HeroOrbit size={620} rotation={-5} spin={45}>
           <div className='size-2 rounded-full bg-emerald-300/20'></div>
         </HeroOrbit>
       </div>
@@ -68,7 +68,9 @@ export const HeroSection = () => {
         <div className='flex flex-col items-center'>
           <Image src={memojiMage} className='size-[100px]' alt="memoji" property='memoji' priority />
           <div className='bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4'>
-            <div className='bg-green-500 size-2.5 rounded-full'></div>
+            <div className='bg-green-500 size- rounded-full justify-center items-center flex'>
+              <div className='bg-green-500 size-3 rounded-full animate-ping-large'></div>
+            </div>
             <div className='text-sm font-medium'>
               Available for new Projects
             </div>

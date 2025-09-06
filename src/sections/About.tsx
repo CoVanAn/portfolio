@@ -1,3 +1,4 @@
+'use client';
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import StarIcon from "@/assets/icons/star.svg";
@@ -11,6 +12,8 @@ import ReacIcon from "@/assets/icons/react.svg";
 import { TechIcon } from "@/components/TechIcon";
 import MapImage from "@/assets/images/map.png";
 import { CardHeader } from "@/components/CardHeader";
+import { Fragment, useRef } from "react";
+import { motion } from 'framer-motion'
 
 const toolboxItems = [
   // {
@@ -123,6 +126,7 @@ const hobbies = [
 ]
 
 export const AboutSection = () => {
+  const constrainRef = useRef(null);
   return (
     <div className="py-20">
       <div className="container">
@@ -154,12 +158,18 @@ export const AboutSection = () => {
                   maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
                 }}
               >
-                {toolboxItems.map((item) => (
-                  <div key={item.title} className="flex items-center space-x-2 p-2 px-4 border border-white rounded-xl">
-                    <TechIcon component={item.icon} />
-                    <span>{item.title}</span>
-                  </div>
-                ))}
+                <div className="flex gap-4 animate-move-left [animationDuration:20s]">
+                  {[...Array(2)].map((_, idx) => (
+                    <Fragment key={idx}>
+                      {toolboxItems.map((item) => (
+                        <div key={item.title} className="flex items-center space-x-2 p-2 px-4 border border-white rounded-xl">
+                          <TechIcon component={item.icon} />
+                          <span>{item.title}</span>
+                        </div>
+                      ))}
+                    </Fragment>
+                  ))}
+                </div>
               </div>
               <div className="mt-6 flex gap-4 flex-row-reverse overflow-x-clip"
                 style={{
@@ -167,12 +177,18 @@ export const AboutSection = () => {
                   maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
                 }}
               >
-                {toolboxItems.map((item) => (
-                  <div key={item.title} className="flex items-center space-x-2 p-2 px-4 border border-white rounded-xl">
-                    <TechIcon component={item.icon} />
-                    <span>{item.title}</span>
-                  </div>
-                ))}
+                <div className="flex gap-4 animate-move-right [animationDuration:25s]">
+                  {[...Array(2)].map((_, idx) => (
+                    <Fragment key={idx}>
+                      {toolboxItems.map((item) => (
+                        <div key={item.title} className="flex items-center space-x-2 p-2 px-4 border border-white rounded-xl">
+                          <TechIcon component={item.icon} />
+                          <span>{item.title}</span>
+                        </div>
+                      ))}
+                    </Fragment>
+                  ))}
+                </div>
               </div>
             </Card>
           </div>
@@ -182,21 +198,19 @@ export const AboutSection = () => {
                 title="Beyond the Code"
                 subtitle="Exploring my interests outside of programming."
               />
-              <div className="relative mt-6 h-full overflow-hidden"
-              //  style={{
-              //     WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-              //     maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
-              //   }}
-              >
-              {hobbies.map((hobby) => (
-                <div key={hobby.title} className="inline-flex items-center  
+              <div className="relative flex-1" ref={constrainRef}>
+                {hobbies.map((hobby) => (
+                  <motion.div key={hobby.title} className="inline-flex items-center  
                 bg-gradient-to-r from-emerald-300 to-sky-400 gap-2 p-2 rounded-xl
-                 text-black font-bold absolute" 
-                 style={{ top: hobby.top, left: hobby.left }}>
-                  <span>{hobby.emoji}</span>
-                  <span>{hobby.title}</span>
-                </div>
-              ))}
+                 text-black font-bold absolute"
+                    style={{ top: hobby.top, left: hobby.left }}
+                    drag
+                    dragConstraints={constrainRef}
+                    >
+                    <span>{hobby.emoji}</span>
+                    <span>{hobby.title}</span>
+                  </motion.div>
+                ))}
               </div>
             </Card>
             <Card className="h-[340px] mt-8 p-0 md:w-5/12 lg:w-4/12">
